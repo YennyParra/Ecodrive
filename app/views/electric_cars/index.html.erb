@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Electric cars</h1>
+
+<div id="electric_cars">
+  <% @electric_cars.each do |electric_car| %>
+    <%= render electric_car %>
+    <p>
+      <%= link_to "Show this electric car", electric_car %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New electric car", new_electric_car_path %>

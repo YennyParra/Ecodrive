@@ -1,0 +1,2 @@
+module ElectricCarsHelper
+end

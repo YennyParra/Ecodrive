@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @electric_car %>
+
+<div>
+  <%= link_to "Edit this electric car", edit_electric_car_path(@electric_car) %> |
+  <%= link_to "Back to electric cars", electric_cars_path %>
+
+  <%= button_to "Destroy this electric car", @electric_car, method: :delete %>
+</div>
