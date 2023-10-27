@@ -1,13 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <%= link_to "Eco Drive", root_path, :class=>"navbar-brand nav-link active text-white" %>
+    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarScroll">
       <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="<%= root_path %>">Home</a>
+          <a class="nav-link active" aria-current="page" href="<%= root_path %>">Eco Drive</a>
         </li>
       <li class="nav-item">
           <%= link_to "Acerca de Nosotros", page_index_path ,class:"nav-link"%>
@@ -25,12 +25,10 @@
 
         <ul class="navbar-nav ms-auto mb-5 mb-lg-0">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-
-
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           <% if user_signed_in? %> 
             <%= current_user.role %>    
-            <% else %> Dale registrate o conectate 
+            <% else %> Registrate o conectate 
           <% end %> </a>
           <ul class="dropdown-menu">
           <% if user_signed_in? %>
@@ -39,7 +37,6 @@
               </li>
               <li>
               <%= link_to 'Editar Perfil', edit_user_registration_path, class: 'dropdown-item'%>
-
               </li>
            
             <% else %> 

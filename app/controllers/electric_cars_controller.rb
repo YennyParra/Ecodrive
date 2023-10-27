@@ -1,13 +1,22 @@
 class ElectricCarsController < ApplicationController
   before_action :set_electric_car, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+  #before_action only: [:edit, :update, :create, :destroy] do
+   # authorize_request(["admin"])
+  #before_action :require_admin, only: %i[ new create edit update destroy ]
 
   # GET /electric_cars or /electric_cars.json
   def index
     @electric_cars = ElectricCar.all
-  end
+    @pagy, @electric_cars = pagy(ElectricCar.ransack(params[:q]).result)
+    @ransack = ElectricCar.ransack(params[:q])
+    
+    
+    end
 
   # GET /electric_cars/1 or /electric_cars/1.json
   def show
+   @electric_car = ElectricCar.find(params[:id])
   end
 
   # GET /electric_cars/new
@@ -56,7 +65,7 @@ class ElectricCarsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_electric_car
@@ -67,4 +76,10 @@ class ElectricCarsController < ApplicationController
     def electric_car_params
       params.require(:electric_car).permit(:model, :brand, :features, :manufacture_year, :driving_range, :rental_price, :image)
     end
-end
+
+    #def require_admin
+      #unless current_user && current_user.admin?
+       # redirect_to root_path
+    #  end
+   # end
+  

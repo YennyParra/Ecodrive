@@ -1,14 +1,23 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Electric cars</h1>
-
 <div id="electric_cars">
-  <% @electric_cars.each do |electric_car| %>
-    <%= render electric_car %>
-    <p>
-      <%= link_to "Show this electric car", electric_car %>
-    </p>
-  <% end %>
+  <h1>Electric cars</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Model</th>
+        <th scope="col">Marca</th>
+        <th scope="col">Año de fabricación</th>
+        <th scope="col">Photo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @electric_cars.each do |electric_car| %>
+        <%= render electric_car %>
+        <p>
+          <%= link_to "Show this electric car", electric_car %>
+        </p>
+      <% end %>
+    </tbody>
+  </table>
 </div>
-
+<%= pagy_nav(@pagy) if @pagy.pages > 1 %>
 <%= link_to "New electric car", new_electric_car_path %>

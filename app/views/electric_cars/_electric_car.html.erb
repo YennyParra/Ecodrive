@@ -31,7 +31,9 @@
 
   <p>
     <strong>Image:</strong>
-    <%= electric_car.image %>
+    <%= image_tag electric_car.image, with:"20%" %>
+    <%else%>
+    <img src="https://unsplash.com/es/s/fotos/autos/40x40" alt= "avatar", width="20%">
   </p>
-
+<%end%>
 </div>
